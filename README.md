@@ -4,6 +4,9 @@
 
 ## 구조
 
+<img width="629" height="470" alt="image" src="https://github.com/user-attachments/assets/3d74818f-3c99-4abc-8220-40abb3232d0e" />
+
+
 ```
 X API ──▶ pipeline (Python) ──POST /internal/events──▶ service (Spring) ──▶ PostgreSQL
               │                                              ▲
