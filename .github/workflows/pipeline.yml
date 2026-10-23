@@ -6,7 +6,7 @@ on:
       - "pipeline/**"
       - "contracts/**"
   push:
-    branches: [main]
+    branches: [main, dev]
     paths:
       - "pipeline/**"
 

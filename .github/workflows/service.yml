@@ -7,7 +7,7 @@ on:
       - "web/**"
       - "contracts/**"
   push:
-    branches: [main]
+    branches: [main, dev]
     paths:
       - "service/**"
       - "web/**"
