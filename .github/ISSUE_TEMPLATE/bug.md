@@ -1,5 +1,5 @@
 ---
-name: 버그
+name: bug
 about: 잘못 동작하는 것
 title: "[영역] "
 labels: fix
