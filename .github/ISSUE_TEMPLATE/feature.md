@@ -1,5 +1,5 @@
 ---
-name: 기능
+name: feature
 about: 새 기능 작업
 title: "[영역] "
 labels: feat
