@@ -29,8 +29,11 @@ docker compose up -d    # 지금은 postgres만
 
 ## 규칙
 
-- `main` 직접 push 금지. PR + 1명 승인.
-- 브랜치: `feat/pipeline-...`, `feat/service-...`, `feat/web-...`, `fix/...`
+- `main` 직접 push 금지. PR + 상대방 승인 1명.
+- 이슈 제목: `[영역] 할 일`. 영역은 pipeline / service / web / contract / infra
+- 브랜치: `{유형}/{이슈번호}-{짧은설명}`. 예: `feat/12-x-since-id`
+- PR 본문에 `Closes #이슈번호`
+- 추출 버그 이슈에는 원본 트윗 링크를 꼭 넣는다.
 - `.env`, X 응답 덤프(`pipeline/data/`)는 커밋하지 않는다.
 - 계약 문서가 바뀌면 같은 PR에서 변경 이력도 적는다.
 
