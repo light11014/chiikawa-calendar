@@ -29,11 +29,23 @@ docker compose up -d    # 지금은 postgres만
 
 ## 규칙
 
-- `main` 직접 push 금지. PR + 상대방 승인 1명.
-- 이슈 제목: `[영역] 할 일`. 영역은 pipeline / service / web / contract / infra
-- 브랜치: `{유형}/{이슈번호}-{짧은설명}`. 예: `feat/12-x-since-id`
-- PR 본문에 `Closes #이슈번호`
+### 브랜치
+- dev(기본) ← 작업 브랜치, main ← dev (배포 시)
+- dev, main 직접 push 금지. PR + 상대방 승인 1명.
+- 작업 브랜치: `{유형}/{이슈번호}-{짧은설명}`. 예: `feat/12-x-since-id`
+- main 은 운영에 배포된 코드와 같다.
+
+### 이슈
+- 제목: `[영역] 할 일`. 영역은 pipeline / service / web / contract / infra
 - 추출 버그 이슈에는 원본 트윗 링크를 꼭 넣는다.
+
+### PR
+- 제목: `[영역] 한 일 (#이슈번호)`
+- 본문 첫 줄에 `Closes #이슈번호`
+- 승인 후 작성자가 머지하고 브랜치를 삭제한다.
+- 작업 브랜치 → dev 는 Squash merge, dev → main 은 Merge commit
+
+### 기타
 - `.env`, X 응답 덤프(`pipeline/data/`)는 커밋하지 않는다.
 - 계약 문서가 바뀌면 같은 PR에서 변경 이력도 적는다.
 
