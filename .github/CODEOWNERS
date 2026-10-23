@@ -1,0 +1,11 @@
+# 계약 문서는 A·B 둘 다 리뷰
+# TODO: A(파이프라인 담당) GitHub 아이디를 추가하세요. 예: @a-github-id
+/contracts/   @light11014
+
+# A · Python 파이프라인
+# /pipeline/  @a-github-id
+
+# B · Spring + React
+/service/     @light11014
+/web/         @light11014
+/deploy/      @light11014

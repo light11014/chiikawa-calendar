@@ -1,0 +1,9 @@
+# 배포 시 사용. DOMAIN은 .env에서 주입합니다.
+{$DOMAIN} {
+    # 내부 API는 외부에 열지 않음 (pipeline은 compose 내부망으로 직접 호출)
+    handle /internal/* {
+        respond 404
+    }
+
+    reverse_proxy service:8080
+}

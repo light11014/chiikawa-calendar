@@ -1,0 +1,63 @@
+name: service
+
+on:
+  pull_request:
+    paths:
+      - "service/**"
+      - "web/**"
+      - "contracts/**"
+  push:
+    branches: [main]
+    paths:
+      - "service/**"
+      - "web/**"
+
+jobs:
+  service:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: service
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check project exists
+        id: check
+        run: |
+          if [ -f build.gradle ] || [ -f build.gradle.kts ]; then echo "exists=true" >> "$GITHUB_OUTPUT"; else echo "exists=false" >> "$GITHUB_OUTPUT"; fi
+
+      - uses: actions/setup-java@v4
+        if: steps.check.outputs.exists == 'true'
+        with:
+          distribution: temurin
+          java-version: "21"
+
+      - name: Build
+        if: steps.check.outputs.exists == 'true'
+        run: ./gradlew build
+
+  web:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: web
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check project exists
+        id: check
+        run: |
+          if [ -f package.json ]; then echo "exists=true" >> "$GITHUB_OUTPUT"; else echo "exists=false" >> "$GITHUB_OUTPUT"; fi
+
+      - uses: actions/setup-node@v4
+        if: steps.check.outputs.exists == 'true'
+        with:
+          node-version: "20"
+
+      - name: Install
+        if: steps.check.outputs.exists == 'true'
+        run: npm ci
+
+      - name: Build
+        if: steps.check.outputs.exists == 'true'
+        run: npm run build

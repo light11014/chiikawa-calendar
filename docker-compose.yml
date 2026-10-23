@@ -1,0 +1,15 @@
+# 로컬 개발용. service, pipeline, caddy는 각자 프로젝트가 생기면 추가합니다.
+services:
+  postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-chiikawa}
+      POSTGRES_USER: ${POSTGRES_USER:-chiikawa}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in .env}
+    ports:
+      - "5432:5432"   # 로컬 개발 전용. 배포 시에는 제거
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+volumes:
+  postgres-data:

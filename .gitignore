@@ -1,0 +1,26 @@
+# 비밀값
+.env
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+*.sqlite
+*.sqlite3
+pipeline/data/
+
+# Java / Gradle
+build/
+.gradle/
+out/
+
+# Node
+node_modules/
+web/dist/
+
+# IDE / OS
+.idea/
+.vscode/
+*.iml
+.DS_Store
