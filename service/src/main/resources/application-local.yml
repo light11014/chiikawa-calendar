@@ -1,0 +1,22 @@
+spring:
+  docker:
+    compose:
+      # 루트 compose를 써야 루트 .env를 읽는다
+      file: ../docker-compose.yml
+      start:
+        arguments: postgres
+      lifecycle-management: start-only
+
+logging:
+  level:
+    com.chiikawa: DEBUG
+    org.hibernate.SQL: DEBUG
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
