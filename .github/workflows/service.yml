@@ -58,6 +58,10 @@ jobs:
         if: steps.check.outputs.exists == 'true'
         run: npm ci
 
+      - name: Lint
+        if: steps.check.outputs.exists == 'true'
+        run: npm run lint
+
       - name: Build
         if: steps.check.outputs.exists == 'true'
         run: npm run build
