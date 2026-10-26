@@ -3,14 +3,10 @@ import dayGridPlugin from '@fullcalendar/react/daygrid'
 import koLocale from '@fullcalendar/react/locales/ko'
 import classicThemePlugin from '@fullcalendar/react/themes/classic'
 
-import '@fullcalendar/react/skeleton.css'
-import '@fullcalendar/react/themes/classic/theme.css'
-import '@fullcalendar/react/themes/classic/palette.css'
-
 function App() {
   return (
-    <main>
-      <h1>치이카와 캘린더</h1>
+    <main className="mx-auto max-w-5xl p-4 font-sans text-foreground">
+      <h1 className="mb-4 text-2xl font-bold">치이카와 캘린더</h1>
       <FullCalendar
         plugins={[dayGridPlugin, classicThemePlugin]}
         initialView="dayGridMonth"

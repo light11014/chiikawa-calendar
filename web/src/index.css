@@ -1,14 +1,29 @@
+@import 'tailwindcss';
+
+/* 디자인 토큰. 색·글꼴은 여기서만 정의하고 컴포넌트에서는 Tailwind 클래스(bg-primary 등)로 쓴다. */
+@theme {
+  --font-sans: system-ui, 'Segoe UI', Roboto, 'Apple SD Gothic Neo', sans-serif;
+
+  --color-primary: #3b82f6;
+  --color-primary-foreground: #ffffff;
+  --color-background: #ffffff;
+  --color-foreground: #111827;
+  --color-muted: #6b7280;
+  --color-border: #e5e7eb;
+
+  /* saleMethod 뱃지 */
+  --color-preorder: #8b5cf6;
+  --color-lottery: #f59e0b;
+  /* needsReview 표시 */
+  --color-review: #ef4444;
+}
+
+/* FullCalendar 테마 변수를 위 토큰에 연결한다 */
 :root {
-  font-family: system-ui, 'Segoe UI', Roboto, sans-serif;
-  color-scheme: light;
-}
-
-body {
-  margin: 0;
-}
-
-main {
-  max-width: 1024px;
-  margin: 0 auto;
-  padding: 16px;
+  --fc-classic-primary: var(--color-primary);
+  --fc-classic-primary-foreground: var(--color-primary-foreground);
+  --fc-classic-background: var(--color-background);
+  --fc-classic-foreground: var(--color-foreground);
+  --fc-classic-muted-foreground: var(--color-muted);
+  --fc-classic-border: var(--color-border);
 }
