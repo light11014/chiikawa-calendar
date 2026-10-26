@@ -30,6 +30,12 @@ cp .env.example .env    # 값 채우기
 docker compose up -d    # 지금은 postgres만
 ```
 
+```bash
+cd web && npm ci && npm run dev    # http://localhost:5173, /api는 localhost:8080으로 프록시
+```
+
+web 코드 규칙: [web/CONVENTIONS.md](web/CONVENTIONS.md)
+
 ## 규칙
 
 ### 브랜치
